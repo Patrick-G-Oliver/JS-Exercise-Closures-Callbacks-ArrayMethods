@@ -76,6 +76,12 @@ function processLastItem(stringList, callback) {
   return callback(stringList[stringList.length - 1]);
 }
 
+const pasta = ['ravoli', 'orzo', 'linguine', 'tortellini'];
+
+processLastItem(pasta, (theLastPasta) => {
+  console.log(theLastPasta);
+});
+
 /**
  * ### Challenge `processSum`
  * 
