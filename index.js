@@ -104,6 +104,10 @@ function processSum(num1, num2, callback) {
   return callback(num1 + num2);
 }
 
+processSum(1, 2, (theSum) => {
+  console.log(theSum);
+});
+
 /**
  * ### Challenge `processProduct`
  * 
@@ -125,6 +129,10 @@ function processSum(num1, num2, callback) {
 function processProduct(num1, num2, callback) {
   return callback(num1 * num2);
 }
+
+processProduct(8, 2, (theProduct) => {
+  console.log(theProduct);
+});
 
 /**
  * ### Challenge `processDuplicateFree`
