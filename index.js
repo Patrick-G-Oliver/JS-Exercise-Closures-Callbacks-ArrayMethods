@@ -48,9 +48,15 @@ function processFirstItem(stringList, callback) {
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
 */
-function processLength(/* CODE HERE */) {
-  /* CODE HERE */
+function processLength(list, callback) {
+  return callback(list.length);
 }
+
+const goldfish = ['ranchu', 'lionhead', 'fantail', 'oranda'];
+
+processLength(goldfish, (listLength) => {
+  console.log(listLength);
+});
 
 /**
  * ### Challenge `processLastItem`
@@ -66,9 +72,15 @@ function processLength(/* CODE HERE */) {
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
 */
-function processLastItem(/* CODE HERE */) {
-  /* CODE HERE */
+function processLastItem(stringList, callback) {
+  return callback(stringList[stringList.length - 1]);
 }
+
+const pasta = ['ravoli', 'orzo', 'linguine', 'tortellini'];
+
+processLastItem(pasta, (theLastPasta) => {
+  console.log(theLastPasta);
+});
 
 /**
  * ### Challenge `processSum`
@@ -88,9 +100,13 @@ function processLastItem(/* CODE HERE */) {
  * [2] Invoking `processSum` passing `-5`, '-1', and `(num) => num + 1000`,
  * should return 994.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
+function processSum(num1, num2, callback) {
+  return callback(num1 + num2);
 }
+
+processSum(1, 2, (theSum) => {
+  console.log(theSum);
+});
 
 /**
  * ### Challenge `processProduct`
@@ -110,9 +126,13 @@ function processSum(/* CODE HERE */) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
+function processProduct(num1, num2, callback) {
+  return callback(num1 * num2);
 }
+
+processProduct(8, 2, (theProduct) => {
+  console.log(theProduct);
+});
 
 /**
  * ### Challenge `processDuplicateFree`
@@ -155,9 +175,18 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * 
  * [2] Invoking `lowerCaseStrings` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
 */
-function lowerCaseStrings(/* code here */) {
-  /* code here */
+
+function lowerCaseStrings(strings) {
+  const lowers = [];
+  strings.forEach((item) => {
+    lowers.push(item.toLowerCase());
+  });
+  return lowers;
 }
+
+const trees = ['Pine', 'SPRUCE', 'CeDaR', 'oaK'];
+
+console.log(lowerCaseStrings(trees));
 
 /**
  * ### Challenge `isItAnApple`
@@ -173,10 +202,18 @@ function lowerCaseStrings(/* code here */) {
  * [1] Invoking `isItAnApple` with `[ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ]` will return `[ false, true, false, false, true, false ]`.
  * 
  * [2] Invoking `isItAnApple` with `['a', 'b', 'c' ]` will return `[ false, false, false ]`.
-*/
-function isItAnApple(/* code here */) {
-  /* code here */
-}
+*/ 
+
+function isItAnApple(strings) {
+  const trulyApples = strings.map((fruit) => {
+    return fruit === 'apple';
+  });
+  return trulyApples;
+} 
+
+const produce = ['avacado', 'apple', 'radish', 'loquat', 'apple'];
+
+console.log(isItAnApple(produce));
 
 /**
  * ### Challenge `removeApple`
@@ -194,9 +231,16 @@ function isItAnApple(/* code here */) {
  * 
  * [2] Invoking `removeApple` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
 */
-function removeApple(/* code here */) {
-  /* code here */
+function removeApple(strings) {
+  const sansApples = strings.filter((fruit) => {
+    return fruit !== 'apple';
+  });
+  return sansApples;
 }
+
+const thingsWithSeeds = ['apple', 'melon', 'pepper', 'apple'];
+
+console.log(removeApple(thingsWithSeeds));
 
 /**
  * ### Challenge `stringSmash`
@@ -213,9 +257,14 @@ function removeApple(/* code here */) {
  * 
  * [2] Invoking `stringSmash` with `['a', 'b', 'c' ]` will return `abc`.
 */
-function stringSmash(/* code here */) {
-  /* code here */
+function stringSmash(strings) {
+  const smasher = (acc, currentVal) => acc + currentVal;
+  return strings.reduce(smasher);
 }
+
+const toBeCompounded = ['wind', 'shield'];
+
+console.log(stringSmash(toBeCompounded)); 
 
 // A local community center is holding a fund raising 5k fun run and has invited
 // 50 small businesses to make a small donation on their behalf for some much needed
@@ -232,9 +281,17 @@ function stringSmash(/* code here */) {
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
+function getFullNames(runners) {
+  const rollCall = runners.map((person) => {
+    return `${person.last_name}, ${person.first_name}`;
+  });
+  return rollCall;
 }
+
+const genericNames = [ { id: 1, first_name: "John", last_name: "Smith" }, { id: 2, first_name: "John", last_name: "Doe" }, { id: 3, first_name: "Jane", last_name: "Doe" } ];
+
+console.log(getFullNames(genericNames));
+
 
 /**
  * ### Challenge `firstNamesAllCaps`
@@ -248,9 +305,16 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+  const capsNames = runners.map((name) => {
+    return name.first_name.toUpperCase();
+  });
+  return capsNames;
 }
+
+const moreGenericNames = [ { id: 1, first_name: "Jim", last_name: "Smith" }, { id: 2, first_name: "Johnny", last_name: "Doe" }, { id: 3, first_name: "Janet", last_name: "Doe" } ];
+
+console.log(firstNamesAllCaps(moreGenericNames)); 
 
 /**
  * ### Challenge `getRunnersByTShirtSize`
@@ -296,10 +360,20 @@ function tallyUpDonations(/* CODE HERE */) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * The counter1 counterMaker function is a self-containted unit, a function that contains all the material that it needs within itself. The counter1 variable is then set to the counterMaker function. 
+ * 
+ * counter2, on the other hand, is represented by a function (counter2) that utilizes a variable (count) that is declared outside to the function's local scope (i.e. in global scope). 
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * Of the two, counter2 uses a closure as evidenced by the counter2() function's need to look outside of its local scope into the global scope (to the 'let count = 0' variable) in order to execute its return statement (return count++;).
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * counter1 would be better used if one wanted to return a function that increments once. 
+ *
+ * counter2 would be preferable if one wanted to count a number of items or events (for example) as the closure used allows for a record, or memory, of the functions calls to be kept (allowing for incremental counting; 1, 2, 3, etc.).
+ * 
 */
 
 // counter1 code
