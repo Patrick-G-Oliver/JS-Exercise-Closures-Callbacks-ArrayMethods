@@ -360,10 +360,20 @@ function tallyUpDonations(/* CODE HERE */) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * The counter1 counterMaker function is a self-containted unit, a function that contains all the material that it needs within itself. The counter1 variable is then set to the counterMaker function. 
+ * 
+ * counter2, on the other hand, is represented by a function (counter2) that utilizes a variable (count) that is declared outside to the function's local scope (i.e. in global scope). 
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * Of the two, counter2 uses a closure as evidenced by the counter2() function's need to look outside of its local scope into the global scope (to the 'let count = 0' variable) in order to execute its return statement (return count++;).
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * counter1 would be better used if one wanted to return a function that increments once. 
+ *
+ * counter2 would be preferable if one wanted to count a number of items or events (for example) as the closure used allows for a record, or memory, of the functions calls to be kept (allowing for incremental counting; 1, 2, 3, etc.).
+ * 
 */
 
 // counter1 code
