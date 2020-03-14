@@ -175,8 +175,13 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * 
  * [2] Invoking `lowerCaseStrings` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
 */
+
 function lowerCaseStrings(strings) {
-  
+  const lowers = [];
+  strings.forEach((item) => {
+    lowers.push(item.toLowerCase());
+  });
+  return lowers;
 }
 
 const trees = ['Pine', 'SPRUCE', 'CeDaR', 'oaK'];
@@ -197,13 +202,14 @@ console.log(lowerCaseStrings(trees));
  * [1] Invoking `isItAnApple` with `[ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ]` will return `[ false, true, false, false, true, false ]`.
  * 
  * [2] Invoking `isItAnApple` with `['a', 'b', 'c' ]` will return `[ false, false, false ]`.
-*/
+*/ 
+
 function isItAnApple(strings) {
   const trulyApples = strings.map((fruit) => {
     return fruit === 'apple';
   });
   return trulyApples;
-}
+} 
 
 const produce = ['avacado', 'apple', 'radish', 'loquat', 'apple'];
 
@@ -251,9 +257,14 @@ console.log(removeApple(thingsWithSeeds));
  * 
  * [2] Invoking `stringSmash` with `['a', 'b', 'c' ]` will return `abc`.
 */
-function stringSmash(/* code here */) {
-  /* code here */
+function stringSmash(strings) {
+  const smasher = (acc, currentVal) => acc + currentVal;
+  return strings.reduce(smasher);
 }
+
+const toBeCompounded = ['wind', 'shield'];
+
+console.log(stringSmash(toBeCompounded)); 
 
 // A local community center is holding a fund raising 5k fun run and has invited
 // 50 small businesses to make a small donation on their behalf for some much needed
@@ -270,9 +281,17 @@ function stringSmash(/* code here */) {
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
+function getFullNames(runners) {
+  const rollCall = runners.map((currentValue) => {
+    return `${currentValue.last_name}, ${currentValue.first_name}`;
+  });
+  return rollCall;
 }
+
+const genericNames = [ { id: 1, first_name: "John", last_name: "Smith" }, { id: 2, first_name: "John", last_name: "Doe" }, { id: 3, first_name: "Jane", last_name: "Doe" } ];
+
+getFullNames(genericNames);
+
 
 /**
  * ### Challenge `firstNamesAllCaps`
@@ -286,9 +305,16 @@ function getFullNames(/* CODE HERE */) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+  const capsNames = runners.map((name) => {
+    return name.first_name.toUpperCase();
+  });
+  return capsNames;
 }
+
+const moreGenericNames = [ { id: 1, first_name: "Jim", last_name: "Smith" }, { id: 2, first_name: "Johnny", last_name: "Doe" }, { id: 3, first_name: "Janet", last_name: "Doe" } ];
+
+console.log(firstNamesAllCaps(moreGenericNames)); 
 
 /**
  * ### Challenge `getRunnersByTShirtSize`
