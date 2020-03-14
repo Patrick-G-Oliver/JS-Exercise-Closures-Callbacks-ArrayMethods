@@ -282,15 +282,15 @@ console.log(stringSmash(toBeCompounded));
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
 function getFullNames(runners) {
-  const rollCall = runners.map((currentValue) => {
-    return `${currentValue.last_name}, ${currentValue.first_name}`;
+  const rollCall = runners.map((person) => {
+    return `${person.last_name}, ${person.first_name}`;
   });
   return rollCall;
 }
 
 const genericNames = [ { id: 1, first_name: "John", last_name: "Smith" }, { id: 2, first_name: "John", last_name: "Doe" }, { id: 3, first_name: "Jane", last_name: "Doe" } ];
 
-getFullNames(genericNames);
+console.log(getFullNames(genericNames));
 
 
 /**
